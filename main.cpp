@@ -64,10 +64,10 @@ int main() {
         body_velocity.setString("Velocity of the body: " + std::to_string((int)velocity.x));
 
         float friction = 0.0f;
-        if (velocity.x > 0) friction = -coefficient * g;
-        else if (velocity.x < 0) friction = coefficient * g;
+        if (velocity.x > 0) friction = -coefficient * g * mass;
+        else if (velocity.x < 0) friction = coefficient * g * mass;
 
-        float acceleration = (pushing_force / mass) + friction;
+        float acceleration = coefficient * g;
 
         float dt = dtclock.restart().asSeconds();
 
